@@ -1,0 +1,74 @@
+<style>
+  input {
+    padding: 0 10px;
+  }
+</style>
+
+<div class="app-title">
+</div>
+<div class="relative">
+  <div class="pl-[40px] pt-[30px]">
+    <div class="">
+      <h3 class="text-center text-2xl font-bold mt-[40px] mb-[50px]">Thông tin xe</h3>
+      <div class="">
+        <form class=" grid grid-cols-3 gap-x-[70px]" method="post"
+          action="/admin/products/edit-product/{{product.id}}?_method=PUT" enctype="multipart/form-data">
+          <div class="grid grid-cols-2 px-[20px]">
+            <div class="grid grid-cols-1 gap-y-[50px] ">
+              <label class="text-lg font-bold">Tên xe:</label>
+              <label class="text-lg font-bold">Hãng xe:</label>
+              <label class="text-lg font-bold">Giá bán:</label>
+              <label class="text-lg font-bold">Nhiên liệu:</label>
+              <label class="text-lg font-bold">Số chỗ:</label>
+            </div>
+            <div class="grid grid-cols-1 gap-y-[50px] ">
+              <input name="tenxe" value="{{product.tenxe}}" class="border rounded border-black" type="text">
+              <input name="hangxe" value="{{product.hangxe}}" class="border rounded border-black" type="text">
+              <input name="giaban" value="{{product.giaban}}" class="border rounded border-black" type="text">
+              <input name="nhienlieu" value="{{product.nhienlieu}}" class="border rounded border-black" type="text">
+              <input name="socho" value="{{product.socho}}" class="border rounded border-black" type="text">
+
+            </div>
+
+          </div>
+          <div class="grid grid-cols-2 px-[20px]">
+            <div class="grid grid-cols-1 gap-y-[50px] ">
+              <label class="text-lg font-bold">Hộp số</label>
+              <label class="text-lg font-bold">Màu sắc</label>
+              <label class="text-lg font-bold">Kiểm dáng</label>
+              <label class="text-lg font-bold">Tình trạng xe:</label>
+              <label class="text-lg font-bold">Năm sản xuất:</label>
+            </div>
+            <div class="grid grid-cols-1 gap-y-[50px] col-span-1 ">
+              <input name="hopso" value="{{product.hopso}}" class="border rounded border-black" type="text">
+              <input name="mausac" value="{{product.mausac}}" class="border rounded border-black" type="text">
+              <input name="kieudang" value="{{product.kieudang}}" class="border rounded border-black" type="text">
+              <input name="tinhtrangxe" value="{{product.tinhtrang}}" class="border rounded border-black" type="text">
+              <input name="namsanxuat" value="{{product.namsanxuat}}" class="border rounded border-black" type="text">
+
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-1 gap-y-4">
+            <div>
+              <div id="myfileupload">
+                <input type="file" id="uploadfile" name="imgUpload" onchange="readURL(this);" />
+              </div>
+              <div id="thumbbox">
+                <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
+                <a class="removeimg" href="javascript:"></a>
+              </div>
+            </div>
+          </div>
+
+          <button style="background-color: #d95a4e;"
+            class="absolute font-bold px-4 py-2 bottom-[-183px] right-[100px] btn btn-save" type="submit">sửa</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>

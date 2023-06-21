@@ -1,0 +1,96 @@
+<style>
+     <style>#status {
+          padding: 10px 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+     }
+
+     #status option {
+          color: black;
+          font-size: 18px;
+          border: 1px solid black;
+          padding: 10px 20px;
+     }
+
+     #status,
+     #info,
+     #ghichu {
+          border: 1px solid black;
+          padding: 10px 20px;
+          outline: none;
+          width: 290px;
+          border-radius: 6px;
+     }
+
+     #info,
+     #ghichu {
+          text-align: left
+     }
+
+
+     .btn_confirm {
+          margin-top: 50px;
+          border: none;
+          padding: 10px 20px;
+          background-color: aqua;
+     }
+</style>
+</style>
+
+<div class="w-[75%] m-auto">
+     <h2 class="text-center text-2xl font-bold mt-[20px]">Đặt lịch xem xe</h2>
+     <div class="flex justify-around  gap-x-[30px] mt-[60px]">
+          <div>
+               <h2 class="uppercase text-xl font-bold mb-[15px]">CHọn mẫu xe</h2>
+               <div class="mb-[20px]">
+                    <span class=" mb-[10px] block font-medium capitalize">chọn hãng xe: </span>
+                    <select class="" name="status" id="status">
+                         <option value="Toyota">Toyota</option>
+                         <option value="Chevrolet">Chevrolet</option>
+                         <option value="Ford">Ford</option>
+                         <option value="Honda">Ford</option>
+                         <option value="Honda">Honda</option>
+                    </select>
+               </div>
+               <div class="mb-[40px]">
+                    <span class=" mb-[10px] capitalize block font-medium">chọn xe: </span>
+                    <select class="" name="status" id="status">
+                         <option value="Jazz">Jazz</option>
+                         <option value="Accord">Accord</option>
+                         <option value="City">City</option>
+                    </select>
+               </div>
+               <h2 class="capitalize text-xl font-bold mb-[15px]">Chọn thời gian</h2>
+               <div class="mb-[20px]">
+                    <span class=" mb-[10px] block font-medium capitalize">chon thời gian đặt xe: </span>
+                    <input id="status" type="date" name="" id="">
+               </div>
+
+          </div>
+          <div>
+               <h2 class="uppercase text-xl font-bold mb-[15px]">thông tin khách hàng</h2>
+               <div class="mb-[20px]">
+                    <span class=" mb-[10px] block font-medium capitalize"> tên khách hàng:</span>
+                    <input id="info" type="text" name="" id="">
+               </div>
+               <div class="mb-[20px]">
+                    <span class=" mb-[10px] block font-medium capitalize"> số điện thoại:</span>
+                    <input id="info" type="text" name="" id="">
+               </div>
+               <div class="mb-[20px]">
+                    <span class=" mb-[10px] block font-medium capitalize"> email:</span>
+                    <input id="info" type="email" name="" id="">
+               </div>
+               <div class="mb-[20px]">
+                    <span class=" mb-[10px] block font-medium capitalize">ghi chú:</span>
+                    <textarea class="h-[80px]" name="" id="ghichu"></textarea>
+               </div>
+          </div>
+
+     </div>
+
+     <div class="mt-[55px] flex justify-end">
+          <button style="background-color: #c81202;" class=" rounded font-bold px-5 py-3 text-white">Gửi</button>
+     </div>
+</div>

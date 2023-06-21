@@ -1,0 +1,129 @@
+<style>
+     .status {
+          border-radius: 5px;
+          padding: 5px 10px;
+     }
+</style>
+<div class="app-title">
+     <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item active"><a href="#"><b>danh sách hóa đơn</b></a></li>
+     </ul>
+     <div id="clock"></div>
+</div>
+<div class="row">
+     <div class="col-md-12">
+          <div class="tile">
+               <div class="tile-body">
+                    <table class="table table-hover table-bordered" id="sampleTable">
+                         <thead>
+                              <tr>
+                                   <th>Mã bill</th>
+                                   <th>Họ và tên </th>
+                                   <th>Số điện thoại</th>
+                                   <th>Địa chỉ</th>
+                                   <th>Trạng thái</th>
+                                   <th>Tổng tiền</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              {{#each bills}}
+                              <tr>
+                                   <td>{{this.id}}</td>
+                                   <td>{{this.fullname}}</td>
+                                   <td>{{this.phone_number}}</td>
+                                   <td>{{this.address}}</td>
+                                   <td> <span class="status">{{this.status}}</span> </td>
+
+                                   <td>{{formatMoney this.total_money}} đ</td>
+                                   <td>
+                                        <a href="/admin/billDetail/{{this.id}}" class="btn btn-primary btn-sm edit"
+                                             type="button" title="chi tiết" id="show-emp" data-toggle="modal"
+                                             data-target="#ModalUP"><i style="font-size: 14px;"
+                                                  class='bx bx-detail'></i></a>
+
+                                        <a href="/admin/edit-bill/{{this.id}}" class="btn btn-primary btn-sm edit"
+                                             type="button" title="Sửa" id="show-emp" data-toggle="modal"
+                                             data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                        </a>
+
+
+                                        <button class="btn btn-danger btn-sm trash" title="Xóa" data-bs-toggle="modal"
+                                             data-bs-target="#modalDelete" data-bs-id="{{this.id}}"><i
+                                                  class="fas fa-trash-alt"></i>
+                                        </button>
+
+                                   </td>
+                              </tr>
+                              {{/each}}
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+     </div>
+</div>
+<form name="form-delete-product" method="post"></form>
+<!--
+  MODAL
+-->
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Bạn có muốn xóa
+                         không</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+
+               <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+
+                    <button id="btn-delete" type="button" class="btn btn-danger">Xóa</button>
+               </div>
+          </div>
+     </div>
+</div>
+<!--
+MODAL
+-->
+<script>
+
+
+
+     document.addEventListener("DOMContentLoaded", () => {
+          const status = document.querySelectorAll(".status")
+
+          status.forEach((item) => {
+               if (item.innerText == "đang xử lý" || item.innerText == "dang xu li") {
+                    item.style.backgroundColor = "#11CAF0";
+               }
+               if (item.innerText == "đã giao") {
+                    item.style.backgroundColor = "#198754";
+               }
+               if (item.innerText == "đã hủy") {
+                    item.style.backgroundColor = "#DC3545";
+               }
+               if (item.innerText == "đang vận chuyển") {
+                    item.style.backgroundColor = "#FFC008";
+               }
+          })
+
+
+
+
+
+
+          var idProduct; var
+               exampleModal = document.getElementById('modalDelete'); var btnDelete =
+                    document.getElementById('btn-delete'); var deleteForm =
+                         document.forms['form-delete-product'];
+          exampleModal.addEventListener('show.bs.modal', event => { // Button that const
+               btn = event.relatedTarget; idProduct = btn.getAttribute('data-bs-id');
+          });
+          btnDelete.addEventListener('click', (event) => {
+               deleteForm.action =
+                    `/admin/products/delete-product?id=${idProduct}&_method=DELETE`;
+               deleteForm.submit();
+          });
+     });
+
+</script>

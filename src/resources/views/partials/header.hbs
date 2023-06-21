@@ -1,0 +1,121 @@
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: sans-serif;
+  }
+
+  .header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 50px 0;
+    border: 1px solid #000;
+  }
+
+  .phone-number-box {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    top: 0;
+    padding-right: 70px;
+    height: 50px;
+  }
+
+  .phone-number-title {
+    padding: 0 14px 0 6px;
+  }
+
+  .phone-number {
+    color: #c81202;
+  }
+
+  .header-logo {
+    position: absolute;
+    padding-left: 50px;
+    width: 200px;
+  }
+
+  .header-navbar {
+    padding-right: 50px;
+    background-color: #c81202;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+  }
+
+  .header-navbar-item {
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .header-navbar-item input {
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
+
+  .dropdown-icon {
+    font-size: 14px;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000;
+  }
+
+  .header-navbar-item a {
+    text-decoration: none;
+    color: #fff;
+  }
+</style>
+
+<body>
+  <header class="header">
+    <div class="phone-number-box">
+      <i class="fa-solid fa-phone"></i>
+      <p class="phone-number-title">Hotline:</p>
+      <p class="phone-number">08888888888</p>
+    </div>
+    <img src="/upload/logo.png" alt="" class="header-logo object-cover w-[200px]" />
+    <ul class="header-navbar">
+      <li class="header-navbar-item">
+        <a href="/"> TRANG CHỦ </a>
+      </li>
+      <li class="header-navbar-item">
+        <a href="">
+          SẢN PHẨM
+          <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+        </a>
+      </li>
+      <li class="header-navbar-item">
+        <a href="/datxemxe"> ĐẶT LỊCH XEM XE </a>
+      </li>
+      <li class="header-navbar-item">
+        <a href="/"> SO SÁNH </a>
+      </li>
+      <li class="header-navbar-item">
+        <a href=""> LIÊN HỆ </a>
+      </li>
+      <li class="header-navbar-item">
+        <input type="text" />
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </li>
+      <li class="header-navbar-item">
+        <a href=""> Đăng nhập </a>
+      </li>
+    </ul>
+  </header>
+</body>

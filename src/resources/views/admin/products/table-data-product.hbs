@@ -1,0 +1,109 @@
+<style>
+  body {
+    background-color: white;
+  }
+
+  table,
+  td,
+  th {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+</style>
+
+<body>
+  <div class="mt-[100px] flex justify-between h-[110px]">
+    <span class="opacity-0">sfdsfsdfsdfsd</span>
+    <h2 class="text-3xl font-bold">danh sách xe</h2>
+    <a class="btn px-4 py-2 mr-[40px] h-[45px] w-[200px] text-xl" style="background-color: #d95a4e;"
+      href="/admin/products/add-product" title="Thêm"><i class="fas fa-plus mr-2"></i>
+      Thêm xe</a>
+  </div>
+  <div style="background-color: #E1E1E1;" class="tile-body h-[70vh]">
+    <table class="">
+      <thead>
+        <tr>
+          <th>Mã xe</th>
+          <th>Tên xe</th>
+          <th>Năm SX</th>
+          <th>Hãng xe</th>
+          <th>Giá xe</th>
+          <th>Tình trạng</th>
+          <th>Hành đông</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each product}}
+        <tr>
+          <td>{{this.id}}</td>
+          <td>{{this.tenxe}}</td>
+          <td>{{this.namsanxuat}}</td>
+          <td>{{this.hangxe}}</td>
+          <td>{{this.giaban}}</td>
+          <td>{{this.tinhtrang}}</td>
+          <td class="">
+            <a href="/admin/products/view/{{this.id}}" class="btn  btn-sm bg-white text-black" href="">xem</a>
+            <a href="/admin/products/edit-product/{{this.id}}" class="btn mx-3 bg-white text-black btn-sm edit"
+              type="button" title="Sửa" id="show-emp" data-toggle="modal" data-target="#ModalUP">sửa</a>
+            <button class="btn btn-sm trash bg-white text-black" title="Xóa" data-bs-toggle="modal"
+              data-bs-target="#modalDelete" data-bs-id="{{this.id}}">xóa
+            </button>
+
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <form name="form-delete-product" method="post"></form>
+  <!--
+  MODAL
+-->
+  <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-black" id="exampleModalLabel">xóa xe</h1>
+          <button type="button" class="text-xl text-black font-bold" data-bs-dismiss="modal"
+            aria-label="Close">X</button>
+        </div>
+        <div class="h-[100px] flex justify-center gap-4 items-center">
+          <span><i class="fa-regular text-3xl fa-circle-question"></i></span>
+          <h2 class="text-xl font-bold">bạn có chắc chắn muốn xóa xe ?</h2>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-delete" type="button" class="font-bold px-4 py-2 border rounded"
+            style="background-color: #d95a4e;">ok</button>
+          <button type="button" class="font-bold px-4 py-2 text-black border rounded"
+            data-bs-dismiss="modal">Hủy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<!--
+MODAL
+-->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    var idProduct; var
+      exampleModal = document.getElementById('modalDelete'); var btnDelete =
+        document.getElementById('btn-delete'); var deleteForm =
+          document.forms['form-delete-product'];
+    exampleModal.addEventListener('show.bs.modal', event => { // Button that const
+      btn = event.relatedTarget; idProduct = btn.getAttribute('data-bs-id');
+    });
+    btnDelete.addEventListener('click', (event) => {
+      deleteForm.action =
+        `/admin/products/delete-product?id=${idProduct}&_method=DELETE`;
+      deleteForm.submit();
+    });
+  });
+
+</script>
